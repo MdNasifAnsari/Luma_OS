@@ -1,0 +1,85 @@
+@view-transition {
+    navigation: auto;
+}
+
+
+
+::view-transition-group(nav-content) {
+    animation-duration: 0s;
+    animation-timing-function: none;
+}
+
+::view-transition-old(nav-content) {
+    animation-name: none;
+}
+
+::view-transition-new(nav-content) {
+    animation-name: none;
+}
+
+nav {
+    view-transition-name: nav-content;
+}
+
+::view-transition-group(header-content) {
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
+
+::view-transition-old(header-content) {
+    animation-name: slide-out;
+}
+
+::view-transition-new(header-content) {
+    animation-name: slide-in;
+}
+
+header {
+    view-transition-name: header-content;
+}
+
+::view-transition-group(main-content) {
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
+
+::view-transition-old(main-content) {
+    animation-name: slide-out;
+}
+
+::view-transition-new(main-content) {
+    animation-name: slide-in;
+}
+
+main {
+    view-transition-name: main-content;
+}
+
+::view-transition-group(footer-content) {
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
+
+::view-transition-old(footer-content) {
+    animation-name: slide-out;
+}
+
+::view-transition-new(footer-content) {
+    animation-name: slide-in;
+}
+
+footer {
+    view-transition-name: footer-content;
+}
+
+@keyframes slide-out {
+    to {
+        translate: -100vw
+    }
+}
+
+@keyframes slide-in {
+    from {
+        translate: 100vw
+    }
+}

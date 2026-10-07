@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101010">
+    <title>Choose a movie — Reel Room</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body class="catalog-page">
+    <header class="site-header">
+      <a class="wordmark" href="index.html" aria-label="Reel Room home">
+        <span class="wordmark-icon" aria-hidden="true">R</span>
+        <span>REEL ROOM</span>
+      </a>
+      <a class="header-link" href="index.html"><span aria-hidden="true">←</span> Home</a>
+    </header>
+
+    <main class="catalog-main">
+      <section id="catalog-view" aria-labelledby="catalog-title">
+        <div class="catalog-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> THE COLLECTION</p>
+            <h1 id="catalog-title">Pick your <span>next story.</span></h1>
+            <p class="section-description">Choose a movie and settle in. Your screening room is ready.</p>
+          </div>
+          <p class="collection-count"><span id="movie-count">06</span> FILMS</p>
+        </div>
+        <div class="movie-grid" id="movie-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="player-view" class="player-view" aria-labelledby="player-title" hidden>
+        <a class="button button-back" href="movie.html"><span aria-hidden="true">←</span> All movies</a>
+        <div class="player-heading">
+          <p class="eyebrow"><span class="eyebrow-line"></span> NOW SHOWING</p>
+          <h1 id="player-title"></h1>
+        </div>
+        <video id="movie-player" class="movie-player" controls playsinline preload="metadata">
+          Your browser does not support HTML video.
+        </video>
+        <p id="player-note" class="player-note">Enjoy the show. Use “All movies” whenever you’re ready to leave.</p>
+        <p id="video-error" class="video-error" role="status" hidden>
+          This movie file could not be loaded.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">MADE FOR YOUR NEXT MOVIE NIGHT <span>✳</span></footer>
+  </body>
+</html>

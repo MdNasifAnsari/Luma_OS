@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luma-OS</title>
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="./browser@4.js"></script>
+</head>
+
+<body class="bg-[url('./img/background.png')] bg-cover bg-no-repeat text-[#fff] font-sans">
+    <!-- <div class="main"></div> -->
+
+    <nav class="flex justify-between w-full h-[30px] p-1 bg-[#00000060]">
+        <div class="flex center">
+            <img draggable="false" src="./img/logo.png" alt="logo" class="h-[30px] w-auto relative bottom-[5px]">
+            <h4 class="font-bold text-[#ffffff]">Luma OS</h4>
+        </div>
+        <div class="flex items-center justify-center text-center align-middle">
+            <div class="wifi p-[5px] text-[15px] flex align-middle text-center items-center justify-center">
+                <span class="material-symbols-outlined" style="font-size: 15px;">wifi</span>
+            </div>
+            <div
+                class="battery gap-[5px] p-[5px] text-[15px] flex align-middle text-center items-center justify-center">
+                <span class="material-symbols-outlined">
+                    battery_full_alt
+                </span> <span class="batt_p">78%</span>
+            </div>
+            <div class="time p-[5px] text-[15px] flex align-middle text-center items-center justify-center">
+                <span id="time">12:00 PM</span>
+            </div>
+            <div class="date p-[5px] text-[15px] flex align-middle text-center items-center justify-center">
+                <span>01/01/1111</span>
+            </div>
+        </div>
+    </nav>
+
+    <desktop class="z-10">
+
+        <!-- <iframe src="" frameborder="0" ></iframe> -->
+
+        <!-- THIS PC -->
+        <div class="icon items-center flex flex-col justify-center h-auto w-[75px]">
+            <img draggable="false" src="./img/This PC.png" alt="" class="h-[50px] w-auto relative  ">
+
+            <span class="text-[12.5px] font-[500] ">This PC</span>
+        </div>
+
+        <!-- Chrome -->
+        <div class="icon items-center flex flex-col justify-center h-auto w-[75px] mt-[5px]">
+            <img draggable="false" src="./img/Chrome.png" alt="" class="h-[50px] w-auto relative ">
+
+            <span class="text-[12.5px] font-[500] ">Chrome</span>
+        </div>
+
+        <!-- Google -->
+        <div class="icon items-center flex flex-col justify-center h-auto w-[75px] mt-[5px]">
+            <img draggable="false" src="./img/google.png" alt="" class="h-[40px] w-auto relative ">
+
+            <span class="text-[12.5px] font-[500]">Google AI</span>
+        </div>
+
+        <!-- Terminal-->
+        <div class="icon items-center flex flex-col justify-center h-auto w-[75px] mt-[5px]">
+            <img draggable="false" src="./img/Terminal.png" alt="" class="h-[50px] w-auto relative ">
+            <span class="text-[12.5px] font-[500]">Terminal</span>
+        </div>
+
+        <!-- Calculator -->
+        <div class="icon items-center flex flex-col justify-center h-auto w-[75px] mt-[5px]">
+            <img draggable="false" src="./img/Calculator.png" alt="" class="h-[50px] w-auto relative ">
+
+            <span class="text-[12.5px] font-[500]">Calculator</span>
+        </div>
+
+        <!-- Weather -->
+        <div class="icon items-center flex flex-col justify-center h-auto w-[75px] mt-[5px]">
+            <img draggable="false" src="./img/Weather.png" alt="" class="h-[50px] w-auto relative ">
+
+            <span class="text-[12.5px] font-[500]">Weather</span>
+        </div>
+
+
+        <!-- Foodie -->
+        <div class="icon items-center flex flex-col justify-center h-auto w-[75px] mt-[5px]">
+            <img draggable="false" src="./img/Foodie.png" alt="" class="h-[50px] w-auto relative ">
+
+            <span class="text-[12.5px] font-[500]">Foodie</span>
+        </div>
+
+
+        <!-- Movie -->
+        <div class="icon items-center flex flex-col justify-center h-auto w-[75px] mt-[5px]">
+            <img draggable="false" src="./img/Movie.png" alt="" class="h-[50px] w-auto relative ">
+            <span class="text-[12.5px] font-[500]">Reel Room</span>
+        </div>
+
+    </desktop>
+
+
+    <!--https://www.google.com/search?igu=1-->
+
+    <viewer style="display: none;"
+        class="flex flex-col absolute w-[calc(100vw-35px)] h-[calc(100%-105px)] min-h-[500px] bg-white/15 backdrop-blur-xs border border-white/20 shadow-lg rounded-[18px] left-1/2 -translate-x-1/2 top-[35px] justify-center items-center z-[0]">
+        <div class="tbar flex justify-between w-full p-1 bg-[#00000060] rounded-t-[18px]">
+            <div class="flex center p-[5px] gap-[5px]">
+                <img draggable="false" src="" alt="" class="appimg h-[20px] w-auto relative ">
+                <span class="appname text-[12.5px] font-[500] color-[#ffffff] "></span>
+            </div>
+            <div>
+
+                <!-- onclick="this.parentElement.parentElement.parentElement.remove()" -->
+
+
+                <span class="material-symbols-outlined text-[20px] p-[5px] cursor-pointer">
+                    close
+                </span>
+            </div>
+        </div>
+
+
+        <iframe src="" frameborder="0" class="w-full h-full rounded-b-[18px]"></iframe>
+    </viewer>
+
+    <!--|| TASKBAR || -->
+
+    <taskbar
+        class="flex fixed w-1/4 h-[50px] bg-white/15 backdrop-blur-xs border border-white/20 shadow-lg rounded-[18px] left-1/2 -translate-x-1/2 bottom-[10px] justify-evenly items-center px-2">
+        <!-- Chrome -->
+        <div class="icon flex items-center justify-center h-full w-[50px]">
+            <img draggable="false" src="./img/Chrome.png" alt="Chrome" class="h-[32px] w-auto object-contain">
+        </div>
+
+        <!-- Calculator -->
+        <div class="icon flex items-center justify-center h-full w-[50px]">
+            <img draggable="false" src="./img/Calculator.png" alt="Calculator" class="h-[32px] w-auto object-contain">
+        </div>
+
+        <!-- Terminal -->
+        <div class="icon flex items-center justify-center h-full w-[50px]">
+            <img draggable="false" src="./img/Terminal.png" alt="Terminal" class="h-[32px] w-auto object-contain">
+        </div>
+
+        <!-- Google AI -->
+        <div class="icon flex items-center justify-center h-full w-[50px]">
+            <img draggable="false" src="./img/google.png" alt="Google AI" class="h-[22px] w-auto object-contain">
+        </div>
+
+        <!-- Settings -->
+        <div class="icon flex items-center justify-center h-full w-[50px]">
+            <img draggable="false" src="./img/Settings.png" alt="Settings" class="h-[32px] w-auto object-contain">
+        </div>
+
+        <!-- Apps Menu -->
+        <div class="icon flex items-center justify-center text-center h-full w-[50px]">
+            <span class="material-symbols-outlined text-[32px] text-white">apps</span>
+        </div>
+    </taskbar>
+
+
+</body>
+<script src="./script.js"></script>
+</html>

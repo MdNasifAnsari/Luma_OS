@@ -1,0 +1,134 @@
+header {
+    height: 50vh;
+    background-image: url("../header_bg/table_bg.png");
+    background-size: cover;
+}
+
+header div {
+
+    color: white;
+    display: flex;
+    gap: 25px;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    justify-content: center;
+}
+
+header div h1 {
+    font-size: 50px;
+}
+
+main {
+    padding: 70px 10%;
+    background: #111;
+}
+
+.contact-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.contact-info,
+form {
+    flex: 1;
+    min-width: 320px;
+    padding: 35px;
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.contact-info h2,
+form h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    color: #d0d0d0;
+    line-height: 1.7;
+}
+
+.info-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+    font-size: 1.1rem;
+}
+
+.info-box span {
+    font-size: 28px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #fff;
+    font-size: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 15px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+
+    font-size: 15px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #bdbdbd;
+}
+
+.form-group textarea {
+    height: 140px;
+    resize: none;
+}
+
+.send-btn {
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+
+    background: #ff6b35;
+    color: white;
+
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.send-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+}
+
+.send-btn a {
+    color: #fff;
+    text-decoration: none;
+}

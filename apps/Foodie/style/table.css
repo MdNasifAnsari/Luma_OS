@@ -1,0 +1,134 @@
+header {
+    min-height: 50vh;
+    background-image: url("../header_bg/table_bg.png");
+    background-size: cover;
+    background-position: center;
+}
+
+header div {
+    color: white;
+    display: flex;
+    gap: 25px;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    justify-content: center;
+    text-align: center;
+}
+
+header div h1 {
+    font-size: 50px;
+}
+
+.book-table {
+    width: min(80vw, 760px);
+    margin: 40px auto 80px;
+    padding: clamp(24px, 5vw, 48px);
+    background: #3a3a3a;
+    border-radius: 20px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+    text-align: center;
+    animation: rise-in 650ms ease both;
+}
+
+.book-table h1 {
+    font-size: clamp(32px, 5vw, 45px);
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.book-table p {
+    color: #969696;
+    margin-bottom: 30px;
+}
+
+.book-table form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 18px;
+    text-align: left;
+}
+
+.book-table form label {
+    align-self: end;
+    color: #f3f3f3;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.book-table input,
+.book-table textarea {
+    width: 100%;
+    padding: 14px 15px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    background: #fff;
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.book-table input,
+.book-table textarea,
+.book-table form label[for="special-request"],
+.book-table form textarea,
+.form-message {
+    grid-column: 1 / -1;
+}
+
+.book-table input:focus,
+.book-table textarea:focus {
+    border-color: #ff6b35;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+}
+
+.book-table form label span {
+    color: #bdbdbd;
+    font-weight: 400;
+}
+
+.book-table button {
+    grid-column: 1 / -1;
+    padding: 15px 20px;
+    background: #ff6b35;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    color: white;
+    transition: background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.book-table button:hover {
+    background: #e85a2a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(232, 90, 42, 0.25);
+}
+
+.book-table button:active {
+    transform: translateY(0);
+}
+
+.book-table button:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
+
+.form-message {
+    min-height: 1.5em;
+    margin: 0;
+    color: #ffd1c0;
+    text-align: center;
+}
+
+@keyframes rise-in {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

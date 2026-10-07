@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Reserve a table at Foodie Restaurant. Choose your date, time, and party size.">
+    <title>Book A Table</title>
+    <link rel="stylesheet" href="./style/table.css">
+    <link rel="stylesheet" href="./style/common.css">
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+</head>
+
+<body>
+    <nav class="nav_bar">
+        <h1>Foodie</h1>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./menu.html">Menu</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div>
+            <h1>Book a Table</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="book-table">
+            <h1>Book A Table</h1>
+            <p>Reserve your table and enjoy delicious food with us.</p>
+
+            <form id="booking-form">
+                <label for="guest-name">Your name</label>
+                <input id="guest-name" name="name" type="text" placeholder="Your Name" autocomplete="name"
+                    minlength="2" required>
+
+                <label for="guest-email">Your email</label>
+                <input id="guest-email" name="email" type="email" placeholder="Your Email" autocomplete="email"
+                    required>
+
+                <label for="guest-phone">Phone number</label>
+                <input id="guest-phone" name="phone" type="tel" placeholder="Phone Number" autocomplete="tel"
+                    minlength="7" maxlength="20" required>
+
+                <label for="booking-date">Reservation date</label>
+                <input id="booking-date" name="date" type="date" required>
+
+                <label for="booking-time">Reservation time</label>
+                <input id="booking-time" name="time" type="time" required>
+
+                <label for="guest-count">Number of guests</label>
+                <input id="guest-count" name="guests" type="number" placeholder="Number of Guests" min="1" step="1"
+                    required>
+
+                <label for="special-request">Special request <span>(optional)</span></label>
+                <textarea id="special-request" name="request" placeholder="Special Request" rows="4"></textarea>
+
+                <button class="book" type="submit">Book my table</button>
+                <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+
+            <div class="footer-logo">
+                <h2>Foodie</h2>
+                <p>Delicious food delivered with love and fresh ingredients.</p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Address</h3>
+                <p>
+                    <span class="material-symbols-outlined">location_on</span>
+                    123 Main Street, India
+                </p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Contact</h3>
+                <p>
+                    <span class="material-symbols-outlined">mail</span>
+                    info@foodie.com
+                </p>
+
+                <p>
+                    <span class="material-symbols-outlined">phone</span>
+                    +91 --------------
+                </p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Opening Hours</h3>
+                <p>
+                    <span class="material-symbols-outlined">schedule</span>
+                    10:00 AM - 10:00 PM
+                </p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="copyright">
+            © 2026 Foodie. All Rights Reserved.
+        </div>
+    </footer>
+    <script src="./scripts/booking.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Weather Updates - Live Weather Forecast</title>
+
+    <!-- Google Material Symbols -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0">
+
+    <!-- Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+
+    <!-- Logo -->
+</head>
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: "Poppins";
+    }
+
+
+    nav {
+        width: 100%;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        color: #ffffff;
+    }
+
+
+    nav h1 {
+        font-size: 30px;
+        padding: 7px;
+    }
+
+
+    nav span {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+
+    nav span img {
+        height: 50px;
+        width: 50px;
+    }
+
+
+    nav input {
+        width: 450px;
+        max-width: 60vw;
+        font-size: 25px;
+        height: 45px;
+        border-radius: 10px;
+        padding: 7px 15px;
+        background-color: rgba(248, 248, 248, 0.7);
+        color: black;
+        border: none;
+        outline: none;
+        font-size: 16px;
+    }
+
+
+    nav button {
+        width: 80px;
+        height: 45px;
+        border: none;
+        border-radius: 10px;
+        font-size: 17px;
+        background-color: rgba(248, 248, 248, 0.623);
+        cursor: pointer;
+    }
+
+
+    nav button:hover {
+        background-color: rgba(255, 255, 255, 0.764);
+    }
+
+
+    .main {
+        width: 90%;
+        max-width: 1500px;
+        min-height: 500px;
+        height: fit-content;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(3px);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        padding: 30px;
+        margin-bottom: 40px;
+    }
+
+
+    .sec1 {
+        display: grid;
+        grid-template-columns: minmax(300px, 1fr) 2fr;
+        gap: 30px;
+        align-items: center;
+    }
+
+
+    .location {
+        font-size: clamp(28px, 3vw, 40px);
+        font-weight: 1000;
+        text-transform: capitalize;
+    }
+
+
+    .temp {
+        display: flex;
+        align-items: center;
+        margin-top: 25px;
+        gap: 25px;
+    }
+
+
+    .temp>span {
+        font-size: 30px;
+        font-weight: 600;
+    }
+
+
+    .temp div {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+
+    .temp div span:first-child {
+        font-size: 30px;
+        font-weight: 600;
+    }
+
+
+    .temp div span:last-child {
+        font-size: 25px;
+        font-weight: 300;
+    }
+
+
+    .sec1>section:nth-child(2) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+
+    .sec1>section:nth-child(2)>div {
+        display: contents;
+    }
+
+
+    .card {
+        text-align: center;
+        width: 100%;
+        min-height: 110px;
+        border-radius: 10px;
+        padding: 15px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+
+    .card span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        margin-bottom: 10px;
+    }
+
+
+    .card span img {
+        height: 22px;
+        width: 22px;
+        object-fit: contain;
+    }
+
+
+    .card h3 {
+        padding-bottom: 10px;
+        font-size: 16px;
+    }
+
+
+    .card h2 {
+        font-size: 20px;
+        font-weight: 900;
+    }
+
+
+    .sec2 {
+        margin-top: 45px;
+    }
+
+
+    .sec2 h1 {
+        font-size: 30px;
+        font-weight: 800;
+        margin-bottom: 15px;
+    }
+
+
+    .forcast_p {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+    }
+
+
+    .forcast_p .forcast {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 175px;
+        width: 100%;
+        background-color: white;
+        border-radius: 7px;
+        padding: 15px;
+        gap: 10px;
+        text-align: center;
+    }
+
+
+    .forcast img {
+        height: 50px;
+        width: 50px;
+        object-fit: contain;
+    }
+
+
+    .forcast h3 {
+        font-size: 16px;
+    }
+
+
+    .forcast h4 {
+        font-size: 16px;
+    }
+
+
+    .forcast h2 {
+        font-size: 19px;
+    }
+
+</style>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <span>
+            <img draggable="false" src="../../img/Weather.png" alt="logo">
+            <h1>Live Weather Forecast</h1>
+        </span>
+
+        <span>
+            <!-- City input -->
+            <input type="text" id="city" placeholder="Enter city">
+
+            <!-- Search button -->
+            <button onclick="longitude_latitude()">Search</button>
+        </span>
+
+    </nav>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <div class="main">
+
+
+        <!-- ================= CURRENT WEATHER ================= -->
+
+        <section class="sec1">
+
+
+            <!-- Location + Temperature -->
+
+            <section>
+
+                <!-- City name -->
+                <h1 class="location">-----</h1>
+
+
+                <div class="temp">
+
+                    <div>
+
+                        <!-- Current temperature -->
+                        <span id="current_temp">-----</span>
+
+                        <!-- Weather type -->
+                        <span id="weather_type">-----</span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= WEATHER CARDS ================= -->
+
+            <section>
+
+
+                <!-- First row -->
+
+                <div class="sec_c1">
+
+
+                    <!-- Feels Like -->
+
+                    <div class="card">
+
+                        <span>
+                            <span class="material-symbols-rounded">
+                                thermostat
+                            </span>
+
+                            <h3>Feels Like</h3>
+                        </span>
+
+                        <h2 id="feels_like">-----</h2>
+
+                    </div>
+
+
+
+                    <!-- Humidity -->
+
+                    <div class="card">
+
+                        <span>
+                            <span class="material-symbols-rounded">
+                                humidity_high
+                            </span>
+
+                            <h3>Humidity</h3>
+                        </span>
+
+                        <h2 id="humidity">-----</h2>
+
+                    </div>
+
+
+
+                    <!-- Wind Speed -->
+
+                    <div class="card">
+
+                        <span>
+                            <span class="material-symbols-rounded">
+                                air
+                            </span>
+
+                            <h3>Wind Speed</h3>
+                        </span>
+
+                        <h2 id="wind_speed">-----</h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Second row -->
+
+                <div class="sec_c2">
+
+
+                    <!-- UV Index -->
+
+                    <div class="card">
+
+                        <span>
+                            <span class="material-symbols-rounded">
+                                wb_sunny
+                            </span>
+
+                            <h3>UV Index</h3>
+                        </span>
+
+                        <h2 id="uv_index">-----</h2>
+
+                    </div>
+
+
+
+                    <!-- Visibility -->
+
+                    <div class="card">
+
+                        <span>
+                            <span class="material-symbols-rounded">
+                                visibility
+                            </span>
+
+                            <h3>Visibility</h3>
+                        </span>
+
+                        <h2 id="visibility">-----</h2>
+
+                    </div>
+
+
+
+                    <!-- Atmospheric Pressure -->
+
+                    <div class="card">
+
+                        <span>
+                            <span class="material-symbols-rounded">
+                                speed
+                            </span>
+
+                            <h3>Atmospheric Pressure</h3>
+                        </span>
+
+                        <h2 id="atmospheric_pressure">-----</h2>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- ================= 5 DAY FORECAST ================= -->
+
+        <section class="sec2">
+
+            <h1>5-Day Forecast</h1>
+
+
+            <div class="forcast_p">
+
+
+                <!-- Forecast Day 1 -->
+
+                <div class="forcast">
+
+                    <h3>-----</h3>
+
+                    <span class="material-symbols-rounded forecast-icon">
+                        wb_sunny
+                    </span>
+
+                    <h4>-----</h4>
+
+                    <h2>-----</h2>
+
+                </div>
+
+
+
+                <!-- Forecast Day 2 -->
+
+                <div class="forcast">
+
+                    <h3>-----</h3>
+
+                    <span class="material-symbols-rounded forecast-icon">
+                        wb_sunny
+                    </span>
+
+                    <h4>-----</h4>
+
+                    <h2>-----</h2>
+
+                </div>
+
+
+
+                <!-- Forecast Day 3 -->
+
+                <div class="forcast">
+
+                    <h3>-----</h3>
+
+                    <span class="material-symbols-rounded forecast-icon">
+                        wb_sunny
+                    </span>
+
+                    <h4>-----</h4>
+
+                    <h2>-----</h2>
+
+                </div>
+
+
+
+                <!-- Forecast Day 4 -->
+
+                <div class="forcast">
+
+                    <h3>-----</h3>
+
+                    <span class="material-symbols-rounded forecast-icon">
+                        wb_sunny
+                    </span>
+
+                    <h4>-----</h4>
+
+                    <h2>-----</h2>
+
+                </div>
+
+
+
+                <!-- Forecast Day 5 -->
+
+                <div class="forcast">
+
+                    <h3>-----</h3>
+
+                    <span class="material-symbols-rounded forecast-icon">
+                        wb_sunny
+                    </span>
+
+                    <h4>-----</h4>
+
+                    <h2>-----</h2>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </div>
+
+</body>
+<script>
+    function getWeatherType(code) {
+
+        if (code === 0) {
+            return "Clear Sky";
+        }
+
+        if (code === 1) {
+            return "Mainly Clear";
+        }
+
+        if (code === 2) {
+            return "Partly Cloudy";
+        }
+
+        if (code === 3) {
+            return "Overcast";
+        }
+
+        if (code >= 45 && code <= 48) {
+            return "Foggy";
+        }
+
+        if (code >= 51 && code <= 57) {
+            return "Drizzle";
+        }
+
+        if (code >= 61 && code <= 67) {
+            return "Rainy";
+        }
+
+        if (code >= 71 && code <= 77) {
+            return "Snowy";
+        }
+
+        if (code >= 80 && code <= 82) {
+            return "Rain Showers";
+        }
+
+        if (code >= 85 && code <= 86) {
+            return "Snow Showers";
+        }
+
+        if (code >= 95 && code <= 99) {
+            return "Thunderstorm";
+        }
+
+        return "Unknown";
+    }
+
+
+    function getWeatherIcon(code) {
+
+        if (code === 0) {
+            return "wb_sunny";
+        }
+
+        if (code === 1) {
+            return "wb_sunny";
+        }
+
+        if (code === 2) {
+            return "partly_cloudy_day";
+        }
+
+        if (code === 3) {
+            return "cloud";
+        }
+
+        if (code >= 45 && code <= 48) {
+            return "foggy";
+        }
+
+        if (code >= 51 && code <= 57) {
+            return "rainy";
+        }
+
+        if (code >= 61 && code <= 67) {
+            return "rainy";
+        }
+
+        if (code >= 71 && code <= 77) {
+            return "weather_snowy";
+        }
+
+        if (code >= 80 && code <= 82) {
+            return "rainy";
+        }
+
+        if (code >= 85 && code <= 86) {
+            return "weather_snowy";
+        }
+
+        if (code >= 95 && code <= 99) {
+            return "thunderstorm";
+
+        }
+
+        return "cloud";
+    }
+
+
+    async function longitude_latitude() {
+
+
+        const city = document.getElementById("city").value;
+
+
+        const geoURL =
+            `https://geocoding-api.open-meteo.com/v1/search` +
+            `?name=${encodeURIComponent(city)}` +
+            `&count=1` +
+            `&language=en` +
+            `&format=json`;
+
+        const geoResponse = await fetch(geoURL);
+
+        const geoData = await geoResponse.json();
+
+        const latitude = geoData.results[0].latitude;
+
+        const longitude = geoData.results[0].longitude;
+
+
+        const weatherURL =
+            `https://api.open-meteo.com/v1/forecast` +
+            `?latitude=${latitude}` +
+            `&longitude=${longitude}` +
+            `&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,visibility,surface_pressure,weather_code` +
+            `&daily=temperature_2m_max,temperature_2m_min,uv_index_max,weather_code` +
+            `&timezone=auto` +
+            `&forecast_days=5`;
+
+        const response = await fetch(weatherURL);
+
+        const weatherData = await response.json();
+
+        const location = document.querySelector(".location");
+
+        location.innerText = city;
+
+        const temperature =
+            document.getElementById("current_temp");
+
+        temperature.innerText =
+            weatherData.current.temperature_2m + "°C";
+
+        const weatherType =
+            document.getElementById("weather_type");
+
+        weatherType.innerText =
+            getWeatherType(weatherData.current.weather_code);
+
+        const feelsLike =
+            document.getElementById("feels_like");
+
+        feelsLike.innerText =
+            weatherData.current.apparent_temperature + "°C";
+
+        const humidity =
+            document.getElementById("humidity");
+
+        humidity.innerText =
+            weatherData.current.relative_humidity_2m + "%";
+
+        const windSpeed =
+            document.getElementById("wind_speed");
+
+        windSpeed.innerText =
+            weatherData.current.wind_speed_10m + " m/s";
+
+        const uvIndex =
+            document.getElementById("uv_index");
+
+        uvIndex.innerText =
+            weatherData.daily.uv_index_max[0];
+
+        const visibility =
+            document.getElementById("visibility");
+
+        visibility.innerText =
+            weatherData.current.visibility + " m";
+
+        const atmosphericPressure =
+            document.getElementById("atmospheric_pressure");
+
+        atmosphericPressure.innerText =
+            weatherData.current.surface_pressure + " hPa";
+
+        const forecastCards =
+            document.querySelectorAll(".forcast");
+
+        for (let i = 0; i < 5; i++) {
+
+
+            forecastCards[i].querySelector("h3").innerText =
+                weatherData.daily.time[i];
+
+
+            forecastCards[i].querySelector("h4").innerText =
+                getWeatherType(
+                    weatherData.daily.weather_code[i]
+                );
+
+            forecastCards[i].querySelector("h2").innerText =
+                weatherData.daily.temperature_2m_max[i] +
+                "°C";
+
+            forecastCards[i]
+                .querySelector(".forecast-icon")
+                .innerText =
+                getWeatherIcon(
+                    weatherData.daily.weather_code[i]
+                );
+
+        }
+
+    }
+
+    document.getElementById("city").addEventListener("keydown", function (event) {
+
+        if (event.key === "Enter") {
+            longitude_latitude();
+        }
+
+    });
+</script>
+
+</html>

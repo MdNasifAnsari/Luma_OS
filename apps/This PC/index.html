@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f5f8">
+  <title>This PC</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <div class="app-shell">
+
+    <div class="toolbar">
+      <button class="icon-button" id="back-button" type="button" aria-label="Go back" title="Go back">←</button>
+      <button class="icon-button" id="forward-button" type="button" aria-label="Go forward"
+        title="Go forward">→</button>
+      <button class="icon-button" id="up-button" type="button" aria-label="Go to This PC"
+        title="Go to This PC">↑</button>
+      <div class="address-bar">
+        <span class="address-icon" aria-hidden="true">▰</span>
+        <span id="address-label">This PC</span>
+        <span class="address-chevron" aria-hidden="true">›</span>
+      </div>
+      <label class="search-box">
+        <span aria-hidden="true">⌕</span>
+        <input id="search-input" type="search" placeholder="Search This PC" aria-label="Search This PC">
+      </label>
+    </div>
+
+    <div class="workspace">
+      <aside class="sidebar" aria-label="Navigation">
+        <nav class="side-nav">
+          <button class="nav-item" type="button" data-view="home">
+            <span class="nav-icon icon-home" aria-hidden="true">⌂</span> Home
+          </button>
+          <button class="nav-item active" type="button" data-view="pc" aria-current="page">
+            <span class="nav-icon icon-pc" aria-hidden="true">▰</span> This PC
+          </button>
+          <button class="nav-item" type="button" data-view="photos">
+            <span class="nav-icon icon-photos" aria-hidden="true">▧</span> Photos
+          </button>
+        </nav>
+        <div class="sidebar-divider"></div>
+        
+        <div class="sidebar-footer">
+          <span class="privacy-dot" aria-hidden="true"></span>
+          <span>Your files stay on your device</span>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <section id="pc-view" class="content-view" aria-labelledby="page-title">
+          <div class="page-heading">
+            <div>
+              <p class="overline">YOUR DEVICE</p>
+              <h1 id="page-title">This PC</h1>
+              <p class="subheading">Your folders, storage, and device details.</p>
+            </div>
+            <button class="primary-button" id="open-photos-button" type="button">
+              <span aria-hidden="true">▧</span> Add photos
+            </button>
+          </div>
+
+          <div id="folder-notice" class="notice" role="status" hidden></div>
+          <section class="content-section" aria-labelledby="folders-title">
+            <div class="section-heading">
+              <h2 id="folders-title">Folders</h2>
+              <span class="section-hint">Select a folder to browse its files</span>
+            </div>
+            <div class="folder-grid">
+              <button class="folder-card folder-desktop" type="button" data-folder="Desktop">
+                <span class="folder-illustration" aria-hidden="true"><span class="folder-glyph">▤</span></span>
+                <span class="folder-card-name">Desktop</span><span class="folder-card-type">Personal folder</span>
+              </button>
+              <button class="folder-card folder-documents" type="button" data-folder="Documents">
+                <span class="folder-illustration" aria-hidden="true"><span class="folder-glyph">▧</span></span>
+                <span class="folder-card-name">Documents</span><span class="folder-card-type">Personal folder</span>
+              </button>
+              <button class="folder-card folder-downloads" type="button" data-folder="Downloads">
+                <span class="folder-illustration" aria-hidden="true"><span class="folder-glyph">⇩</span></span>
+                <span class="folder-card-name">Downloads</span><span class="folder-card-type">Personal folder</span>
+              </button>
+              <button class="folder-card folder-music" type="button" data-folder="Music">
+                <span class="folder-illustration" aria-hidden="true"><span class="folder-glyph">♫</span></span>
+                <span class="folder-card-name">Music</span><span class="folder-card-type">Personal folder</span>
+              </button>
+              <button class="folder-card folder-pictures" type="button" data-folder="Pictures">
+                <span class="folder-illustration" aria-hidden="true"><span class="folder-glyph">▣</span></span>
+                <span class="folder-card-name">Pictures</span><span class="folder-card-type">Personal folder</span>
+              </button>
+              <button class="folder-card folder-videos" type="button" data-folder="Videos">
+                <span class="folder-illustration" aria-hidden="true"><span class="folder-glyph">▷</span></span>
+                <span class="folder-card-name">Videos</span><span class="folder-card-type">Personal folder</span>
+              </button>
+            </div>
+          </section>
+
+          <section class="content-section drive-section" aria-labelledby="devices-title">
+            <div class="section-heading">
+              <h2 id="devices-title">Devices and storage</h2>
+              <span class="section-hint">Available to this browser</span>
+            </div>
+            <article class="drive-card">
+              <div class="drive-icon" aria-hidden="true">
+                <span class="drive-screen"></span><span class="drive-light"></span>
+              </div>
+              <div class="drive-details">
+                <div class="drive-title-row">
+                  <h3>Browser storage</h3>
+                  <span class="storage-badge">WEBSITE DATA</span>
+                </div>
+                <p id="storage-caption">Checking available browser storage…</p>
+                <div class="storage-track" role="img" aria-label="Browser storage usage">
+                  <span id="storage-fill"></span>
+                </div>
+                <p class="storage-amount" id="storage-amount"></p>
+              </div>
+              <span class="drive-arrow" aria-hidden="true">›</span>
+            </article>
+            <p class="storage-disclaimer">
+              Browser storage is not the same as your computer’s disk space. Web pages cannot read drive names or total
+              disk capacity.
+            </p>
+          </section>
+
+          <section class="content-section device-section" aria-labelledby="device-title">
+            <div class="section-heading">
+              <h2 id="device-title">Device specifications</h2>
+              <span class="section-hint">Reported by your browser</span>
+            </div>
+            <div class="spec-grid">
+              <article class="spec-card"><span class="spec-icon" aria-hidden="true">▰</span><span
+                  class="spec-label">Operating platform</span><strong id="platform-value">Detecting…</strong></article>
+              <article class="spec-card"><span class="spec-icon" aria-hidden="true">◉</span><span
+                  class="spec-label">Browser</span><strong id="browser-value">Detecting…</strong></article>
+              <article class="spec-card"><span class="spec-icon" aria-hidden="true">▦</span><span
+                  class="spec-label">Screen resolution</span><strong id="screen-value">Detecting…</strong></article>
+              <article class="spec-card"><span class="spec-icon" aria-hidden="true">▥</span><span
+                  class="spec-label">Logical processors</span><strong id="cpu-value">Detecting…</strong></article>
+              <article class="spec-card"><span class="spec-icon" aria-hidden="true">◈</span><span
+                  class="spec-label">Approx. device memory</span><strong id="memory-value">Detecting…</strong></article>
+              <article class="spec-card"><span class="spec-icon" aria-hidden="true">◷</span><span
+                  class="spec-label">Local time</span><strong id="time-value">Detecting…</strong></article>
+            </div>
+            <p class="privacy-note">Details are supplied by your browser. Some values may be rounded, reduced, or
+              unavailable for privacy.</p>
+          </section>
+        </section>
+
+        <section id="photos-view" class="content-view" aria-labelledby="photos-title" hidden>
+          <div class="page-heading">
+            <div>
+              <p class="overline">YOUR COLLECTION</p>
+              <h1 id="photos-title">Photos</h1>
+              <p class="subheading" id="photos-subheading">Browse photos from your local photos folder.</p>
+            </div>
+            <button class="primary-button" id="choose-photos-button" type="button">
+              <span aria-hidden="true">＋</span> Choose photos folder
+            </button>
+          </div>
+          <div class="privacy-banner"><span aria-hidden="true">ⓘ</span> Photos are opened locally in your browser and
+            are never uploaded.</div>
+          <div id="photo-empty" class="empty-state">
+            <div class="empty-art" aria-hidden="true"><span>▧</span></div>
+            <h2>Your photo gallery is ready</h2>
+            <p>Choose the <strong>photos</strong> folder to display the images you add there.</p>
+            <button class="secondary-button" id="empty-choose-button" type="button">Choose photos folder</button>
+            <p class="supported-formats">Supports JPG, PNG, GIF, WebP, BMP, and AVIF</p>
+          </div>
+          <div id="photo-grid" class="photo-grid" aria-live="polite"></div>
+        </section>
+
+        <section id="folder-view" class="content-view" aria-labelledby="folder-title" hidden>
+          <div class="page-heading">
+            <div>
+              <p class="overline">LOCAL FOLDER</p>
+              <h1 id="folder-title">Folder</h1>
+              <p class="subheading" id="folder-subheading">Choose a folder to browse its contents.</p>
+            </div>
+            <button class="secondary-button" id="select-folder-button" type="button">Choose folder</button>
+          </div>
+          <div id="folder-grid" class="file-grid" aria-live="polite"></div>
+          <div id="folder-empty" class="empty-state compact-empty">
+            <div class="empty-art" aria-hidden="true"><span>▤</span></div>
+            <h2>No folder selected</h2>
+            <p>Choose a folder to view its files here. This PC cannot open folders without your permission.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+    <footer class="status-bar">
+      <span id="status-count">6 folders</span>
+      <span class="status-right"><span class="status-led" aria-hidden="true"></span> Local view</span>
+    </footer>
+  </div>
+
+  <input id="directory-input" class="visually-hidden" type="file" webkitdirectory directory multiple>
+  <input id="photos-input" class="visually-hidden" type="file" webkitdirectory directory multiple accept="image/*">
+</body>
+
+</html>
