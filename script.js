@@ -46,7 +46,7 @@ navigator.getBattery().then(battery => {
 const apps = {
     "This PC": "./apps/This PC/index.html",
     "Chrome": "https://www.google.com/search?igu=1",
-    "Google AI": "https://www.google.com/search?q=addeventlistener+double+click&sca_esv=b1f4eb556121911c&igu=1&sxsrf=APpeQns3iizrcGz6RsS_l1Uknbc6PxgorQ%3A1791387776327&source=hp&ei=gGjGarzOEuaX4-EP1eOM4Qc&iflsig=ABILxe8AAAAAasZ2kN3T7ngoL_Bsvaa722QRkvjQAeJr&udm=50&csuir=1&aep=107&mstk=AUtExfDdouHvIVEZlNZ0pbFaMIx46-brjaJbsicrbziy5lfU7aI64fNMjHIF0BElVsIL3FLxNBVM4_txxFpzNvOLFPKW_xQ7qncPlXCghXb3PLOM2Cbn1lpSJUJaJ6X7UZfOAJX7DfVBubH-mDAOtHZsqOo39ivI4E_LZc8&oq=&gs_lp=Egdnd3Mtd2l6IgAqEAgAGKIHGJ4GGPAFGOoCGCcyEBAjGKIHGJ4GGPAFGOoCGCcyEBAjGPAFGJ4GGKIHGOoCGCcyEBAjGKIHGJ4GGPAFGOoCGCcyEBAjGPAFGJ4GGKIHGOoCGCcyEBAjGPAFGJ4GGKIHGOoCGCdI5sYIUABYAHAAeACQAQCYAdcCoAGTBaoBAzMtMrgBAcgBAJgCAqACjwaoAgWYA6oDkgcFMy0xLjGgB5YqsgcFMy0xLjG4B48GwgcFNC0xLjHIB12ACAE&sclient=gws-wiz&cs=1",
+    "Google AI": "https://www.google.com/search?sca_esv=b1f4eb556121911c&igu=1&sxsrf=APpeQns3iizrcGz6RsS_l1Uknbc6PxgorQ%3A1791387776327&ei=gGjGarzOEuaX4-EP1eOM4Qc&iflsig=ABILxe8AAAAAasZ2kN3T7ngoL_Bsvaa722QRkvjQAeJr&udm=50&oq=&gs_lp=Egdnd3Mtd2l6IgAqEAgAGKIHGJ4GGPAFGOoCGCcyEBAjGKIHGJ4GGPAFGOoCGCcyEBAjGPAFGJ4GGKIHGOoCGCcyEBAjGKIHGJ4GGPAFGOoCGCcyEBAjGPAFGJ4GGKIHGOoCGCcyEBAjGPAFGJ4GGKIHGOoCGCdI5sYIUABYAHAAeACQAQCYAdcCoAGTBaoBAzMtMrgBAcgBAJgCAqACjwaoAgWYA6oDkgcFMy0xLjGgB5YqsgcFMy0xLjG4B48GwgcFNC0xLjHIB12ACAE&sclient=gws-wiz&cs=1&zs=1",
     "Terminal": "./apps/Terminal/index.html",
     "Calculator": "./apps/Calculator/index.html",
     "Weather": "./apps/Weather/index.html",
